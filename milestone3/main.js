@@ -145,7 +145,22 @@ const app = new Vue({
       }
       // questo return verrà eseguito solo se la condizione dell'if non è valida
       return contactMsgs[contactMsgs.length-1].text;
-    }
+    },
+
+    searchContact(){
+      let newContacts = this.contacts.filter((object) => {
+
+          if(!object.name.toLowerCase().includes(this.strSearch.toLowerCase())){
+
+              return object.visible = false
+          }else{
+              return object.visible = true
+          }
+          
+              
+      
+      })
+  }
 
   },
   mounted(){
